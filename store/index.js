@@ -24,7 +24,7 @@ export const mutations = {
 
 export const actions = {
   async nuxtServerInit({ commit }) {
-    const response = await fetch("/api/v1/posts");
+    const response = await fetch("http://localhost:3000/api/v1/posts");
     const posts = await response.json();
     return commit("SET_POSTS", posts);
   },
@@ -40,7 +40,7 @@ export const actions = {
     return commit("ADD_POST", created);
   },
   async deletePost({ commit }, id) {
-    const response = await fetch(`/api/v1/create`, {
+    const response = await fetch(`http://localhost:3000/api/v1/create`, {
       method: "post",
       headers: {
         "Content-Type": "text/plain",
